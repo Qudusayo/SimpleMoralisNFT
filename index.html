@@ -12,21 +12,32 @@
     </head>
     <body>
         <main>
-            <div class="container p-3 mb-2 bg-secondary text-white">
-                <div class="mt-2 mb-2">
-                    <h1>CryptoGodz</h1>
+            <div class="container">
+
+                <div>
+                    <img src="static/images/Crypto_Gods_Header.jpg" alt="CryptoGod Header" style="width: 100%; height: 25%; margin: auto; position: relative;" >
                 </div>
                 <hr>
-                <div class="row align-items-start">
-                    <h2>Minting Area</h2>
-                    <div class="col mt-2 mb-2">
-                        <h3>Get an Art</h3>
-                        <div class="mt-2 mb-2">
-                            <button  class="btn btn-dark" id="getCharacter" onclick="getNftPicture();"> Generate a Random NFT</button>
-                            <div id="totalSupply"></div>
+                <style>
+                    .godImage:hover{
+                        opacity: 0.5;
+                        transition: 0.5s;
+                    }
+                </style>
+            
+                    <img class="godImage"  src="static/images/Druid.jpg" alt="Druid" style="width: 24%; position: relative;"  >
+                    <img class="godImage" src="static/images/Ra.jpg" alt="Druid" style="width: 24%; position: relative;">
+                    <img class="godImage" src="static/images/LizardGod.jpg" alt="Druid" style="width: 24%; position: relative;">
+                    <img class="godImage" src="static/images/Odin.jpg" alt="Druid" style="width: 24%; position: relative;">
+
+
+ 
+                        <div class="mt-2 mb-2" style="align-items: center; display: flex; justify-content: center;" >
+                            <button  class="btn btn-outline-dark" id="getCharacter" onclick="getNftPicture();"> Generate a Random NFT</button>
+                            <button  class="btn btn-outline-dark" id="getCharacter" onclick="connectWallet();" style="margin-left: 5px;"> Connect Wallet</button>
+
                     </div>
-                </div>
-            </div>
+                    <div id="totalSupply" style="display: flex; justify-content: center;"></div>
         </main>
     <!-- Scripts -->
 
