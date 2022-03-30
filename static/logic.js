@@ -1,7 +1,7 @@
 Moralis.initialize("Nn3L5VnAaBK9O6qVy9RMGWmdwGgVE9CMMoKOFfnZ"); // Application id from moralis.io
 Moralis.serverURL = "https://o8rgonfjhhoa.usemoralis.com:2053/server"; //Server url from moralis.io
 
-const nft_contract_address = "0x839A6E61d8e61FeF31678b26E797f4b53ed649F6" //NFT Minting Contract Use This One "Batteries Included", code of this contract is in the github repository under contract_base for your reference.
+const nft_contract_address = "0x3138D3158750E8Db32448B675A08cB250E328b58" //NFT Minting Contract Use This One "Batteries Included", code of this contract is in the github repository under contract_base for your reference.
 /*
 Available deployed contracts
 Ethereum Rinkeby 0x0Fb6EF3505b9c52Ed39595433a21aF9B5FCc4431
@@ -16,7 +16,6 @@ const web3 = new Web3(window.ethereum);
 //Step 1 Initialize Web3
 async function connectWallet(){ 
     Moralis.authenticate();
-    await Moralis.enableWeb3();
 } 
 
 
@@ -96,10 +95,10 @@ async function mapNft(charIndex){
 
 async function mintNft(_uri){
 
- //   await Moralis.transfer({type:"native", receiver: "0xde152f5fAF03ec67F7e0BC7970A2f6529DB64301",
- //   amount: Moralis.Units.ETH("0.01")});
+ /*  await Moralis.transfer({type:"native", receiver: "0xde152f5fAF03ec67F7e0BC7970A2f6529DB64301",
+   amount: Moralis.Units.ETH("0.01")}); */
 
- /*var ABI = {
+var ABI = {
   "inputs": [
     {
       "internalType": "string",
@@ -117,12 +116,12 @@ const options = {
    contractAddress: nft_contract_address,
    functionName: "mintNft",
    abi: ABI,
-   params: {_uri},
+   params: {tokenURI: _uri},
    msgValue: Moralis.Units.ETH(0.01)
 }
 await Moralis.executeFunction(options);
-*/
 
+/*
   const encodedFunction = web3.eth.abi.encodeFunctionCall({
     name: "mintNft",
     type: "function",
@@ -136,15 +135,16 @@ await Moralis.executeFunction(options);
     to: nft_contract_address,
     from: ethereum.selectedAddress,
     data: encodedFunction,
-    msgValue: Moralis.Units.ETH(0.01)
+
   };
   const txt = await ethereum.request({
     method: 'eth_sendTransaction',
-    params: [transactionParameters]
+    params: [transactionParameters],
+
   });
 
-  return txt 
-}
+  return txt */ 
+} 
 
 async function prtTotalSupply(){
     await Moralis.start({
@@ -180,3 +180,4 @@ async function prtTotalSupply(){
       console.log("Next Id that is going to be minted is: " + allowance);
       return allowance;
 }
+
